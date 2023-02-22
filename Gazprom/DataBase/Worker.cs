@@ -12,18 +12,24 @@ namespace Gazprom.DataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class Role
+    public partial class Worker
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Role()
+        public Worker()
         {
-            this.User = new HashSet<User>();
+            this.Animal_worker = new HashSet<Animal_worker>();
         }
     
         public int id { get; set; }
-        public string Name { get; set; }
+        public int idPost { get; set; }
+        public string fullName { get; set; }
+        public System.DateTime dateOfEmployment { get; set; }
+        public string gender { get; set; }
+        public System.DateTime dateOfBrith { get; set; }
+        public double pay { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> User { get; set; }
+        public virtual ICollection<Animal_worker> Animal_worker { get; set; }
+        public virtual Post Post { get; set; }
     }
 }

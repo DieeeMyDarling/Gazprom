@@ -12,14 +12,15 @@ namespace Gazprom.DataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Feed_supply
     {
         public int id { get; set; }
-        public int idRole { get; set; }
-        public string Name { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
+        public int idSupplier { get; set; }
+        public int idFeed { get; set; }
+        public System.DateTime date { get; set; }
+        public int price { get; set; }
     
-        public virtual Role Role { get; set; }
+        public virtual Feed Feed { get; set; }
+        public virtual The_supplier The_supplier { get; set; }
     }
 }

@@ -4,26 +4,121 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище GazpromModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "Gazprom.dbo.Product" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-        <EntityType Name="Product">
+      <Schema Namespace="Хранилище ZooModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Animal">
           <Key>
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Image" />
-            <PropertyRef Name="TypeProduct" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Image" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="TypeProduct" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idKind" Type="int" Nullable="false" />
+          <Property Name="idCell" Type="int" Nullable="false" />
+          <Property Name="idClimatZone" Type="int" Nullable="false" />
+          <Property Name="NameOfTheAnimal" Type="nvarchar" MaxLength="70" />
+          <Property Name="nickname" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="gender" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="dateOfBrith" Type="date" Nullable="false" />
+          <Property Name="age" Type="int" Nullable="false" />
+          <Property Name="numberOfOffspring" Type="int" Nullable="false" />
+          <Property Name="image" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Animal card">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idAnimal" Type="int" />
+          <Property Name="height" Type="nvarchar" MaxLength="50" />
+          <Property Name="weight" Type="nvarchar" MaxLength="50" />
+          <Property Name="disease" Type="nvarchar" MaxLength="300" />
+          <Property Name="vaccinations" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Animal/worker">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idAnimal" Type="int" Nullable="false" />
+          <Property Name="idWorker" Type="int" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cell">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Climate zone">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="climateZone" Type="nvarchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Compatibility">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idKind" Type="int" Nullable="false" />
+          <Property Name="idKind2" Type="int" Nullable="false" />
+          <Property Name="Compability" Type="nvarchar" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <EntityType Name="diet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idKind" Type="int" Nullable="false" />
+          <Property Name="idFeed" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Feed">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="feedType" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Feed supply">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idSupplier" Type="int" Nullable="false" />
+          <Property Name="idFeed" Type="int" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="price" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kind">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Possible offspring">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idAnimal" Type="int" Nullable="false" />
+          <Property Name="idAnimal2" Type="int" Nullable="false" />
+          <Property Name="approximateDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="60" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="70" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -35,54 +130,456 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="The supplier">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="IdRole" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idRole" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="70" Nullable="false" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Worker">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idPost" Type="int" Nullable="false" />
+          <Property Name="fullName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="dateOfEmployment" Type="date" Nullable="false" />
+          <Property Name="gender" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="dateOfBrith" Type="date" Nullable="false" />
+          <Property Name="pay" Type="float" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Animal card_Animal">
+          <End Role="Animal" Type="Self.Animal" Multiplicity="0..1" />
+          <End Role="Animal card" Type="Self.Animal card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Animal card">
+              <PropertyRef Name="idAnimal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Animal/worker_Animal">
+          <End Role="Animal" Type="Self.Animal" Multiplicity="1" />
+          <End Role="Animal/worker" Type="Self.Animal/worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Animal/worker">
+              <PropertyRef Name="idAnimal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Animal/worker_Worker">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+          <End Role="Animal/worker" Type="Self.Animal/worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Animal/worker">
+              <PropertyRef Name="idWorker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Animal_Cell">
+          <End Role="Cell" Type="Self.Cell" Multiplicity="1" />
+          <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cell">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Animal">
+              <PropertyRef Name="idCell" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Animal_Climate zone">
+          <End Role="Climate zone" Type="Self.Climate zone" Multiplicity="1" />
+          <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Climate zone">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Animal">
+              <PropertyRef Name="idClimatZone" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Animal_Kind">
+          <End Role="Kind" Type="Self.Kind" Multiplicity="1" />
+          <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kind">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Animal">
+              <PropertyRef Name="idKind" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Compatibility_Kind">
+          <End Role="Kind" Type="Self.Kind" Multiplicity="1" />
+          <End Role="Compatibility" Type="Self.Compatibility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kind">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Compatibility">
+              <PropertyRef Name="idKind" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Compatibility_Kind1">
+          <End Role="Kind" Type="Self.Kind" Multiplicity="1" />
+          <End Role="Compatibility" Type="Self.Compatibility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kind">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Compatibility">
+              <PropertyRef Name="idKind2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_diet_Feed">
+          <End Role="Feed" Type="Self.Feed" Multiplicity="1" />
+          <End Role="diet" Type="Self.diet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Feed">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="diet">
+              <PropertyRef Name="idFeed" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_diet_Kind">
+          <End Role="Kind" Type="Self.Kind" Multiplicity="1" />
+          <End Role="diet" Type="Self.diet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kind">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="diet">
+              <PropertyRef Name="idKind" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feed supply_Feed">
+          <End Role="Feed" Type="Self.Feed" Multiplicity="1" />
+          <End Role="Feed supply" Type="Self.Feed supply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Feed">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Feed supply">
+              <PropertyRef Name="idFeed" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feed supply_The  supplier">
+          <End Role="The supplier" Type="Self.The supplier" Multiplicity="1" />
+          <End Role="Feed supply" Type="Self.Feed supply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="The supplier">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Feed supply">
+              <PropertyRef Name="idSupplier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Possible offspring_Animal">
+          <End Role="Animal" Type="Self.Animal" Multiplicity="1" />
+          <End Role="Possible offspring" Type="Self.Possible offspring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Possible offspring">
+              <PropertyRef Name="idAnimal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Possible offspring_Animal1">
+          <End Role="Animal" Type="Self.Animal" Multiplicity="1" />
+          <End Role="Possible offspring" Type="Self.Possible offspring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Possible offspring">
+              <PropertyRef Name="idAnimal2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_User_Role">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="User">
-              <PropertyRef Name="IdRole" />
+              <PropertyRef Name="idRole" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище GazpromModelContainer">
+        <Association Name="FK_Worker_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="1" />
+          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Worker">
+              <PropertyRef Name="idPost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ZooModelContainer">
+          <EntitySet Name="Animal" EntityType="Self.Animal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Animal card" EntityType="Self.Animal card" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Animal/worker" EntityType="Self.Animal/worker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cell" EntityType="Self.Cell" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Climate zone" EntityType="Self.Climate zone" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Compatibility" EntityType="Self.Compatibility" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="diet" EntityType="Self.diet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feed" EntityType="Self.Feed" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feed supply" EntityType="Self.Feed supply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kind" EntityType="Self.Kind" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Possible offspring" EntityType="Self.Possible offspring" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="The supplier" EntityType="Self.The supplier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Product" EntityType="Self.Product" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Product].[Id] AS [Id], 
-    [Product].[Name] AS [Name], 
-    [Product].[Image] AS [Image], 
-    [Product].[TypeProduct] AS [TypeProduct]
-    FROM [dbo].[Product] AS [Product]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Worker" EntityType="Self.Worker" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Animal card_Animal" Association="Self.FK_Animal card_Animal">
+            <End Role="Animal" EntitySet="Animal" />
+            <End Role="Animal card" EntitySet="Animal card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Animal/worker_Animal" Association="Self.FK_Animal/worker_Animal">
+            <End Role="Animal" EntitySet="Animal" />
+            <End Role="Animal/worker" EntitySet="Animal/worker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Animal/worker_Worker" Association="Self.FK_Animal/worker_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Animal/worker" EntitySet="Animal/worker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Animal_Cell" Association="Self.FK_Animal_Cell">
+            <End Role="Cell" EntitySet="Cell" />
+            <End Role="Animal" EntitySet="Animal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Animal_Climate zone" Association="Self.FK_Animal_Climate zone">
+            <End Role="Climate zone" EntitySet="Climate zone" />
+            <End Role="Animal" EntitySet="Animal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Animal_Kind" Association="Self.FK_Animal_Kind">
+            <End Role="Kind" EntitySet="Kind" />
+            <End Role="Animal" EntitySet="Animal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Compatibility_Kind" Association="Self.FK_Compatibility_Kind">
+            <End Role="Kind" EntitySet="Kind" />
+            <End Role="Compatibility" EntitySet="Compatibility" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Compatibility_Kind1" Association="Self.FK_Compatibility_Kind1">
+            <End Role="Kind" EntitySet="Kind" />
+            <End Role="Compatibility" EntitySet="Compatibility" />
+          </AssociationSet>
+          <AssociationSet Name="FK_diet_Feed" Association="Self.FK_diet_Feed">
+            <End Role="Feed" EntitySet="Feed" />
+            <End Role="diet" EntitySet="diet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_diet_Kind" Association="Self.FK_diet_Kind">
+            <End Role="Kind" EntitySet="Kind" />
+            <End Role="diet" EntitySet="diet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feed supply_Feed" Association="Self.FK_Feed supply_Feed">
+            <End Role="Feed" EntitySet="Feed" />
+            <End Role="Feed supply" EntitySet="Feed supply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feed supply_The  supplier" Association="Self.FK_Feed supply_The  supplier">
+            <End Role="The supplier" EntitySet="The supplier" />
+            <End Role="Feed supply" EntitySet="Feed supply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Possible offspring_Animal" Association="Self.FK_Possible offspring_Animal">
+            <End Role="Animal" EntitySet="Animal" />
+            <End Role="Possible offspring" EntitySet="Possible offspring" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Possible offspring_Animal1" Association="Self.FK_Possible offspring_Animal1">
+            <End Role="Animal" EntitySet="Animal" />
+            <End Role="Possible offspring" EntitySet="Possible offspring" />
+          </AssociationSet>
           <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
             <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
+          <AssociationSet Name="FK_Worker_Post" Association="Self.FK_Worker_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Worker" EntitySet="Worker" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="GazpromModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="ZooModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Animal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idKind" Type="Int32" Nullable="false" />
+          <Property Name="idCell" Type="Int32" Nullable="false" />
+          <Property Name="idClimatZone" Type="Int32" Nullable="false" />
+          <Property Name="NameOfTheAnimal" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="nickname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="gender" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dateOfBrith" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="age" Type="Int32" Nullable="false" />
+          <Property Name="numberOfOffspring" Type="Int32" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Animal_card" Relationship="Self.FK_Animal_card_Animal" FromRole="Animal" ToRole="Animal_card" />
+          <NavigationProperty Name="Animal_worker" Relationship="Self.FK_Animal_worker_Animal" FromRole="Animal" ToRole="Animal_worker" />
+          <NavigationProperty Name="Cell" Relationship="Self.FK_Animal_Cell" FromRole="Animal" ToRole="Cell" />
+          <NavigationProperty Name="Climate_zone" Relationship="Self.FK_Animal_Climate_zone" FromRole="Animal" ToRole="Climate_zone" />
+          <NavigationProperty Name="Kind" Relationship="Self.FK_Animal_Kind" FromRole="Animal" ToRole="Kind" />
+          <NavigationProperty Name="Possible_offspring" Relationship="Self.FK_Possible_offspring_Animal" FromRole="Animal" ToRole="Possible_offspring" />
+          <NavigationProperty Name="Possible_offspring1" Relationship="Self.FK_Possible_offspring_Animal1" FromRole="Animal" ToRole="Possible_offspring" />
+        </EntityType>
+        <EntityType Name="Animal_card">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idAnimal" Type="Int32" />
+          <Property Name="height" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="weight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="disease" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="vaccinations" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Animal" Relationship="Self.FK_Animal_card_Animal" FromRole="Animal_card" ToRole="Animal" />
+        </EntityType>
+        <EntityType Name="Animal_worker">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idAnimal" Type="Int32" Nullable="false" />
+          <Property Name="idWorker" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Animal" Relationship="Self.FK_Animal_worker_Animal" FromRole="Animal_worker" ToRole="Animal" />
+          <NavigationProperty Name="Worker" Relationship="Self.FK_Animal_worker_Worker" FromRole="Animal_worker" ToRole="Worker" />
+        </EntityType>
+        <EntityType Name="Cell">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="number" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Animal" Relationship="Self.FK_Animal_Cell" FromRole="Cell" ToRole="Animal" />
+        </EntityType>
+        <EntityType Name="Climate_zone">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="climateZone" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Animal" Relationship="Self.FK_Animal_Climate_zone" FromRole="Climate_zone" ToRole="Animal" />
+        </EntityType>
+        <EntityType Name="Compatibility">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idKind" Type="Int32" Nullable="false" />
+          <Property Name="idKind2" Type="Int32" Nullable="false" />
+          <Property Name="Compability" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Kind" Relationship="Self.FK_Compatibility_Kind" FromRole="Compatibility" ToRole="Kind" />
+          <NavigationProperty Name="Kind1" Relationship="Self.FK_Compatibility_Kind1" FromRole="Compatibility" ToRole="Kind" />
+        </EntityType>
+        <EntityType Name="diet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idKind" Type="Int32" Nullable="false" />
+          <Property Name="idFeed" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Feed" Relationship="Self.FK_diet_Feed" FromRole="diet" ToRole="Feed" />
+          <NavigationProperty Name="Kind" Relationship="Self.FK_diet_Kind" FromRole="diet" ToRole="Kind" />
+        </EntityType>
+        <EntityType Name="Feed">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="feedType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="diet" Relationship="Self.FK_diet_Feed" FromRole="Feed" ToRole="diet" />
+          <NavigationProperty Name="Feed_supply" Relationship="Self.FK_Feed_supply_Feed" FromRole="Feed" ToRole="Feed_supply" />
+        </EntityType>
+        <EntityType Name="Feed_supply">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idSupplier" Type="Int32" Nullable="false" />
+          <Property Name="idFeed" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Feed" Relationship="Self.FK_Feed_supply_Feed" FromRole="Feed_supply" ToRole="Feed" />
+          <NavigationProperty Name="The_supplier" Relationship="Self.FK_Feed_supply_The__supplier" FromRole="Feed_supply" ToRole="The_supplier" />
+        </EntityType>
+        <EntityType Name="Kind">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Animal" Relationship="Self.FK_Animal_Kind" FromRole="Kind" ToRole="Animal" />
+          <NavigationProperty Name="Compatibility" Relationship="Self.FK_Compatibility_Kind" FromRole="Kind" ToRole="Compatibility" />
+          <NavigationProperty Name="Compatibility1" Relationship="Self.FK_Compatibility_Kind1" FromRole="Kind" ToRole="Compatibility" />
+          <NavigationProperty Name="diet" Relationship="Self.FK_diet_Kind" FromRole="Kind" ToRole="diet" />
+        </EntityType>
+        <EntityType Name="Possible_offspring">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idAnimal" Type="Int32" Nullable="false" />
+          <Property Name="idAnimal2" Type="Int32" Nullable="false" />
+          <Property Name="approximateDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Animal" Relationship="Self.FK_Possible_offspring_Animal" FromRole="Possible_offspring" ToRole="Animal" />
+          <NavigationProperty Name="Animal1" Relationship="Self.FK_Possible_offspring_Animal1" FromRole="Possible_offspring" ToRole="Animal" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Worker" Relationship="Self.FK_Worker_Post" FromRole="Post" ToRole="Worker" />
+        </EntityType>
         <EntityType Name="Role">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -95,44 +592,309 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <EntityType Name="The_supplier">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Feed_supply" Relationship="Self.FK_Feed_supply_The__supplier" FromRole="The_supplier" ToRole="Feed_supply" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="IdRole" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idRole" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
         </EntityType>
-        <EntityType Name="Product">
+        <EntityType Name="Worker">
           <Key>
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Image" />
-            <PropertyRef Name="TypeProduct" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TypeProduct" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idPost" Type="Int32" Nullable="false" />
+          <Property Name="fullName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dateOfEmployment" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="gender" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dateOfBrith" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="pay" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Animal_worker" Relationship="Self.FK_Animal_worker_Worker" FromRole="Worker" ToRole="Animal_worker" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_Worker_Post" FromRole="Worker" ToRole="Post" />
         </EntityType>
+        <Association Name="FK_Animal_card_Animal">
+          <End Role="Animal" Type="Self.Animal" Multiplicity="0..1" />
+          <End Role="Animal_card" Type="Self.Animal_card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Animal_card">
+              <PropertyRef Name="idAnimal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Animal_worker_Animal">
+          <End Role="Animal" Type="Self.Animal" Multiplicity="1" />
+          <End Role="Animal_worker" Type="Self.Animal_worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Animal_worker">
+              <PropertyRef Name="idAnimal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Animal_Cell">
+          <End Role="Cell" Type="Self.Cell" Multiplicity="1" />
+          <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cell">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Animal">
+              <PropertyRef Name="idCell" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Animal_Climate_zone">
+          <End Role="Climate_zone" Type="Self.Climate_zone" Multiplicity="1" />
+          <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Climate_zone">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Animal">
+              <PropertyRef Name="idClimatZone" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Animal_Kind">
+          <End Role="Kind" Type="Self.Kind" Multiplicity="1" />
+          <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kind">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Animal">
+              <PropertyRef Name="idKind" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Possible_offspring_Animal">
+          <End Role="Animal" Type="Self.Animal" Multiplicity="1" />
+          <End Role="Possible_offspring" Type="Self.Possible_offspring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Possible_offspring">
+              <PropertyRef Name="idAnimal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Possible_offspring_Animal1">
+          <End Role="Animal" Type="Self.Animal" Multiplicity="1" />
+          <End Role="Possible_offspring" Type="Self.Possible_offspring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Possible_offspring">
+              <PropertyRef Name="idAnimal2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Animal_worker_Worker">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+          <End Role="Animal_worker" Type="Self.Animal_worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Animal_worker">
+              <PropertyRef Name="idWorker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Compatibility_Kind">
+          <End Role="Kind" Type="Self.Kind" Multiplicity="1" />
+          <End Role="Compatibility" Type="Self.Compatibility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kind">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Compatibility">
+              <PropertyRef Name="idKind" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Compatibility_Kind1">
+          <End Role="Kind" Type="Self.Kind" Multiplicity="1" />
+          <End Role="Compatibility" Type="Self.Compatibility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kind">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Compatibility">
+              <PropertyRef Name="idKind2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_diet_Feed">
+          <End Role="Feed" Type="Self.Feed" Multiplicity="1" />
+          <End Role="diet" Type="Self.diet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Feed">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="diet">
+              <PropertyRef Name="idFeed" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_diet_Kind">
+          <End Role="Kind" Type="Self.Kind" Multiplicity="1" />
+          <End Role="diet" Type="Self.diet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kind">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="diet">
+              <PropertyRef Name="idKind" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feed_supply_Feed">
+          <End Role="Feed" Type="Self.Feed" Multiplicity="1" />
+          <End Role="Feed_supply" Type="Self.Feed_supply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Feed">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Feed_supply">
+              <PropertyRef Name="idFeed" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feed_supply_The__supplier">
+          <End Role="The_supplier" Type="Self.The_supplier" Multiplicity="1" />
+          <End Role="Feed_supply" Type="Self.Feed_supply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="The_supplier">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Feed_supply">
+              <PropertyRef Name="idSupplier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Worker_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="1" />
+          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Worker">
+              <PropertyRef Name="idPost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_User_Role">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="User">
-              <PropertyRef Name="IdRole" />
+              <PropertyRef Name="idRole" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="GazpromEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ZooEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Animal" EntityType="Self.Animal" />
+          <EntitySet Name="Animal_card" EntityType="Self.Animal_card" />
+          <EntitySet Name="Animal_worker" EntityType="Self.Animal_worker" />
+          <EntitySet Name="Cell" EntityType="Self.Cell" />
+          <EntitySet Name="Climate_zone" EntityType="Self.Climate_zone" />
+          <EntitySet Name="Compatibility" EntityType="Self.Compatibility" />
+          <EntitySet Name="diet" EntityType="Self.diet" />
+          <EntitySet Name="Feed" EntityType="Self.Feed" />
+          <EntitySet Name="Feed_supply" EntityType="Self.Feed_supply" />
+          <EntitySet Name="Kind" EntityType="Self.Kind" />
+          <EntitySet Name="Possible_offspring" EntityType="Self.Possible_offspring" />
+          <EntitySet Name="Post" EntityType="Self.Post" />
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="The_supplier" EntityType="Self.The_supplier" />
           <EntitySet Name="User" EntityType="Self.User" />
-          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="Worker" EntityType="Self.Worker" />
+          <AssociationSet Name="FK_Animal_card_Animal" Association="Self.FK_Animal_card_Animal">
+            <End Role="Animal" EntitySet="Animal" />
+            <End Role="Animal_card" EntitySet="Animal_card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Animal_worker_Animal" Association="Self.FK_Animal_worker_Animal">
+            <End Role="Animal" EntitySet="Animal" />
+            <End Role="Animal_worker" EntitySet="Animal_worker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Animal_Cell" Association="Self.FK_Animal_Cell">
+            <End Role="Cell" EntitySet="Cell" />
+            <End Role="Animal" EntitySet="Animal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Animal_Climate_zone" Association="Self.FK_Animal_Climate_zone">
+            <End Role="Climate_zone" EntitySet="Climate_zone" />
+            <End Role="Animal" EntitySet="Animal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Animal_Kind" Association="Self.FK_Animal_Kind">
+            <End Role="Kind" EntitySet="Kind" />
+            <End Role="Animal" EntitySet="Animal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Possible_offspring_Animal" Association="Self.FK_Possible_offspring_Animal">
+            <End Role="Animal" EntitySet="Animal" />
+            <End Role="Possible_offspring" EntitySet="Possible_offspring" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Possible_offspring_Animal1" Association="Self.FK_Possible_offspring_Animal1">
+            <End Role="Animal" EntitySet="Animal" />
+            <End Role="Possible_offspring" EntitySet="Possible_offspring" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Animal_worker_Worker" Association="Self.FK_Animal_worker_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Animal_worker" EntitySet="Animal_worker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Compatibility_Kind" Association="Self.FK_Compatibility_Kind">
+            <End Role="Kind" EntitySet="Kind" />
+            <End Role="Compatibility" EntitySet="Compatibility" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Compatibility_Kind1" Association="Self.FK_Compatibility_Kind1">
+            <End Role="Kind" EntitySet="Kind" />
+            <End Role="Compatibility" EntitySet="Compatibility" />
+          </AssociationSet>
+          <AssociationSet Name="FK_diet_Feed" Association="Self.FK_diet_Feed">
+            <End Role="Feed" EntitySet="Feed" />
+            <End Role="diet" EntitySet="diet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_diet_Kind" Association="Self.FK_diet_Kind">
+            <End Role="Kind" EntitySet="Kind" />
+            <End Role="diet" EntitySet="diet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feed_supply_Feed" Association="Self.FK_Feed_supply_Feed">
+            <End Role="Feed" EntitySet="Feed" />
+            <End Role="Feed_supply" EntitySet="Feed_supply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feed_supply_The__supplier" Association="Self.FK_Feed_supply_The__supplier">
+            <End Role="The_supplier" EntitySet="The_supplier" />
+            <End Role="Feed_supply" EntitySet="Feed_supply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Worker_Post" Association="Self.FK_Worker_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Worker" EntitySet="Worker" />
+          </AssociationSet>
           <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
             <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
@@ -143,17 +905,137 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище GazpromModelContainer" CdmEntityContainer="GazpromEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ZooModelContainer" CdmEntityContainer="ZooEntities1">
+          <EntitySetMapping Name="Animal">
+            <EntityTypeMapping TypeName="ZooModel.Animal">
+              <MappingFragment StoreEntitySet="Animal">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idKind" ColumnName="idKind" />
+                <ScalarProperty Name="idCell" ColumnName="idCell" />
+                <ScalarProperty Name="idClimatZone" ColumnName="idClimatZone" />
+                <ScalarProperty Name="NameOfTheAnimal" ColumnName="NameOfTheAnimal" />
+                <ScalarProperty Name="nickname" ColumnName="nickname" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="dateOfBrith" ColumnName="dateOfBrith" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="numberOfOffspring" ColumnName="numberOfOffspring" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Animal_card">
+            <EntityTypeMapping TypeName="ZooModel.Animal_card">
+              <MappingFragment StoreEntitySet="Animal card">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idAnimal" ColumnName="idAnimal" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="disease" ColumnName="disease" />
+                <ScalarProperty Name="vaccinations" ColumnName="vaccinations" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Animal_worker">
+            <EntityTypeMapping TypeName="ZooModel.Animal_worker">
+              <MappingFragment StoreEntitySet="Animal/worker">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idAnimal" ColumnName="idAnimal" />
+                <ScalarProperty Name="idWorker" ColumnName="idWorker" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cell">
+            <EntityTypeMapping TypeName="ZooModel.Cell">
+              <MappingFragment StoreEntitySet="Cell">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="number" ColumnName="number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Climate_zone">
+            <EntityTypeMapping TypeName="ZooModel.Climate_zone">
+              <MappingFragment StoreEntitySet="Climate zone">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="climateZone" ColumnName="climateZone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Compatibility">
+            <EntityTypeMapping TypeName="ZooModel.Compatibility">
+              <MappingFragment StoreEntitySet="Compatibility">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idKind" ColumnName="idKind" />
+                <ScalarProperty Name="idKind2" ColumnName="idKind2" />
+                <ScalarProperty Name="Compability" ColumnName="Compability" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="diet">
+            <EntityTypeMapping TypeName="ZooModel.diet">
+              <MappingFragment StoreEntitySet="diet">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idKind" ColumnName="idKind" />
+                <ScalarProperty Name="idFeed" ColumnName="idFeed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feed">
+            <EntityTypeMapping TypeName="ZooModel.Feed">
+              <MappingFragment StoreEntitySet="Feed">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="feedType" ColumnName="feedType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feed_supply">
+            <EntityTypeMapping TypeName="ZooModel.Feed_supply">
+              <MappingFragment StoreEntitySet="Feed supply">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idSupplier" ColumnName="idSupplier" />
+                <ScalarProperty Name="idFeed" ColumnName="idFeed" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kind">
+            <EntityTypeMapping TypeName="ZooModel.Kind">
+              <MappingFragment StoreEntitySet="Kind">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Possible_offspring">
+            <EntityTypeMapping TypeName="ZooModel.Possible_offspring">
+              <MappingFragment StoreEntitySet="Possible offspring">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idAnimal" ColumnName="idAnimal" />
+                <ScalarProperty Name="idAnimal2" ColumnName="idAnimal2" />
+                <ScalarProperty Name="approximateDate" ColumnName="approximateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Post">
+            <EntityTypeMapping TypeName="ZooModel.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Role">
-            <EntityTypeMapping TypeName="GazpromModel.Role">
+            <EntityTypeMapping TypeName="ZooModel.Role">
               <MappingFragment StoreEntitySet="Role">
-                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="GazpromModel.sysdiagrams">
+            <EntityTypeMapping TypeName="ZooModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -163,23 +1045,35 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="The_supplier">
+            <EntityTypeMapping TypeName="ZooModel.The_supplier">
+              <MappingFragment StoreEntitySet="The supplier">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="GazpromModel.User">
+            <EntityTypeMapping TypeName="ZooModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idRole" ColumnName="idRole" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Product">
-            <EntityTypeMapping TypeName="GazpromModel.Product">
-              <MappingFragment StoreEntitySet="Product">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="TypeProduct" ColumnName="TypeProduct" />
+          <EntitySetMapping Name="Worker">
+            <EntityTypeMapping TypeName="ZooModel.Worker">
+              <MappingFragment StoreEntitySet="Worker">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idPost" ColumnName="idPost" />
+                <ScalarProperty Name="fullName" ColumnName="fullName" />
+                <ScalarProperty Name="dateOfEmployment" ColumnName="dateOfEmployment" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="dateOfBrith" ColumnName="dateOfBrith" />
+                <ScalarProperty Name="pay" ColumnName="pay" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

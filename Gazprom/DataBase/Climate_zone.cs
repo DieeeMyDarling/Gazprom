@@ -12,14 +12,18 @@ namespace Gazprom.DataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Climate_zone
     {
-        public int id { get; set; }
-        public int idRole { get; set; }
-        public string Name { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Climate_zone()
+        {
+            this.Animal = new HashSet<Animal>();
+        }
     
-        public virtual Role Role { get; set; }
+        public int id { get; set; }
+        public string climateZone { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Animal> Animal { get; set; }
     }
 }

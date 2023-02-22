@@ -1,4 +1,4 @@
-﻿<Page x:Class="Gazprom.Users.PageSklad"
+﻿<Page x:Class="Gazprom.Users.PageMedCard"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:Gazprom.Users"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Наличие" IsVisibleChanged="Page_IsVisibleChanged">
+      Title="PageMedCard">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -38,24 +39,6 @@
 
 
         </StackPanel>
-
-        <!--<DataGrid x:Name="Animal" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Животное" Binding="{Binding NameOfTheAnimal}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Кличка" Binding="{Binding nickname}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Пол" Binding="{Binding gender}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Binding = "{Binding image}" Width="*"></DataGridTextColumn>
-                <DataGridTemplateColumn Width="auto">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Click"></Button>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-
-        </DataGrid>-->
-
         <ListView x:Name="Animal"
                   SelectionChanged="MaterialList_SelectionChanged"
                   Grid.Row="1"
@@ -67,13 +50,13 @@
 
                     <StackPanel Orientation="Horizontal">
 
-              
-                           
-                                <Image Height="150"
+
+
+                        <Image Height="150"
                                Width="150"
                                Source="{Binding image}"/>
-                     
-                        
+
+
 
                         <StackPanel Margin="30,40,0,0">
                             <StackPanel Orientation="Horizontal">
@@ -85,7 +68,7 @@
 
 
                             </StackPanel>
-                     
+
                             <Button Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Click"></Button>
                         </StackPanel>
                     </StackPanel>
@@ -101,7 +84,7 @@
         </ListView>
         <Button Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Height="40" Margin="0,0,140,0" Content="Добавить" Click="Button_Click" Background="#FFFCF5E6"/>
         <Button Grid.Row="2" Name="BtnDel" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Height="40" Margin="0,0,20,0" Content="Удалить" Click="BtnDel_Click" Background="#FFFCF5E6"/>
-        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="40" Margin="0,0,20,5" Content="Назад" Click="Button_Click" Background="#FFFCF5E6"/>
+        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="40" Margin="0,0,20,5" Content="Назад" Click="Button_Click_1" Background="#FFFCF5E6"/>
         <Image Source="/Images/Logo.png" Width="126" VerticalAlignment="Center" HorizontalAlignment="Left"/>
     </Grid>
 </Page>

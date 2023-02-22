@@ -12,18 +12,27 @@ namespace Gazprom.DataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class Role
+    public partial class Kind
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Role()
+        public Kind()
         {
-            this.User = new HashSet<User>();
+            this.Animal = new HashSet<Animal>();
+            this.Compatibility = new HashSet<Compatibility>();
+            this.Compatibility1 = new HashSet<Compatibility>();
+            this.diet = new HashSet<diet>();
         }
     
         public int id { get; set; }
-        public string Name { get; set; }
+        public string title { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> User { get; set; }
+        public virtual ICollection<Animal> Animal { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Compatibility> Compatibility { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Compatibility> Compatibility1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<diet> diet { get; set; }
     }
 }

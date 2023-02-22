@@ -13,10 +13,10 @@ namespace Gazprom.DataBase
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GazpromEntities : DbContext
+    public partial class ZooEntities1 : DbContext
     {
-        public GazpromEntities()
-            : base("name=GazpromEntities")
+        public ZooEntities1()
+            : base("name=ZooEntities1")
         {
         }
     
@@ -25,9 +25,22 @@ namespace Gazprom.DataBase
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Animal> Animal { get; set; }
+        public virtual DbSet<Animal_card> Animal_card { get; set; }
+        public virtual DbSet<Animal_worker> Animal_worker { get; set; }
+        public virtual DbSet<Cell> Cell { get; set; }
+        public virtual DbSet<Climate_zone> Climate_zone { get; set; }
+        public virtual DbSet<Compatibility> Compatibility { get; set; }
+        public virtual DbSet<diet> diet { get; set; }
+        public virtual DbSet<Feed> Feed { get; set; }
+        public virtual DbSet<Feed_supply> Feed_supply { get; set; }
+        public virtual DbSet<Kind> Kind { get; set; }
+        public virtual DbSet<Possible_offspring> Possible_offspring { get; set; }
+        public virtual DbSet<Post> Post { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<The_supplier> The_supplier { get; set; }
         public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<Worker> Worker { get; set; }
     }
 }

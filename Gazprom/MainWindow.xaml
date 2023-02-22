@@ -6,22 +6,19 @@
         xmlns:local="clr-namespace:Gazprom"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#FFF1F1F1">
+        
+
         <Frame Name="FrmMain" 
                Grid.Row="1" 
                NavigationUIVisibility="Hidden" Navigated="FrmMain_Navigated">
-
+            
         </Frame>
         <StackPanel
         Orientation="Horizontal"
             VerticalAlignment="Top"
         HorizontalAlignment="Right"  Width="232" Margin="0,10,10,0">
-            <TextBlock
-            FontSize="14pt"
-            FontWeight="Bold"
-            Margin="10"
-            VerticalAlignment="Center"
-            Text="{Binding ElementName=FrmMain, Path=Content.Title}"/>
+            
 
         </StackPanel>
 

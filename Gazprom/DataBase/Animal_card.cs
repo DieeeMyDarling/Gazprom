@@ -12,14 +12,15 @@ namespace Gazprom.DataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Animal_card
     {
         public int id { get; set; }
-        public int idRole { get; set; }
-        public string Name { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
+        public Nullable<int> idAnimal { get; set; }
+        public string height { get; set; }
+        public string weight { get; set; }
+        public string disease { get; set; }
+        public string vaccinations { get; set; }
     
-        public virtual Role Role { get; set; }
+        public virtual Animal Animal { get; set; }
     }
 }

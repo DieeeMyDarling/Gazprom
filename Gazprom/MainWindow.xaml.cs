@@ -16,6 +16,7 @@ using System.Windows.Controls;
 using Gazprom.PageMain;
 using Gazprom.DataBase;
 
+
 namespace Gazprom
 {
     /// <summary>
@@ -28,7 +29,7 @@ namespace Gazprom
             InitializeComponent();
             FrameApp.frmObj = FrmMain;
             FrmMain.Navigate(new PageLogin());
-            ODBConnectHelper.entObj = new GazpromEntities();
+            ODBConnectHelper.entObj = new ZooEntities1();
         }
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)

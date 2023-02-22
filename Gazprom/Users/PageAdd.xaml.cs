@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using Microsoft.Win32;
 
 namespace Gazprom.Users
 {
@@ -21,29 +23,72 @@ namespace Gazprom.Users
     /// </summary>
     public partial class PageAdd : Page
     {
-        private Product _product = new Product();
-        public PageAdd(Product selectedProduct)
+        private Animal _product = new Animal();
+        public PageAdd(Animal selectedAnimal)
         
         {
             InitializeComponent();
+
+            if (selectedAnimal != null)
+            {
+                _product = selectedAnimal;
+
+                //ComboKind.SelectedItem = _product.Kind;
+                //CmbCell.SelectedItem = _product.Cell;
+                //CmbClimat.SelectedItem = _product.Climate_zone;
+               
+                
+                
+            }
+                DataContext = _product;
+                ComboKind.ItemsSource = ODBConnectHelper.entObj.Kind.ToList();
+            CmbCell.ItemsSource = ODBConnectHelper.entObj.Cell.ToList();
+            CmbClimat.ItemsSource = ODBConnectHelper.entObj.Climate_zone.ToList();
+
+
+
+            //CmbClimat.ItemsSource = ODBConnectHelper.entObj.Climate_zone.ToList();
+            //CmbCell.SelectedValuePath = "id";
+            //CmbCell.DisplayMemberPath = "number";
+            //CmbCell.ItemsSource = ODBConnectHelper.entObj.Cell.ToList();
+            //CmbClimat.SelectedValuePath = "id";
+            //CmbClimat.DisplayMemberPath = "climateZone";
+            //CmbClimat.ItemsSource = ODBConnectHelper.entObj.Climate_zone.ToList();
+            //ComboKind.SelectedValuePath = "id";
+            //ComboKind.DisplayMemberPath = "title";
+            //ComboKind.ItemsSource = ODBConnectHelper.entObj.Kind.ToList();
+
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            if (_product.Id == 0)
+            StringBuilder errors = new StringBuilder();
+            _product.idCell = (CmbCell.SelectedItem as Cell).id;
+            _product.idClimatZone = (CmbClimat.SelectedItem as Climate_zone).id;
+            _product.idKind = (ComboKind.SelectedItem as Kind).id;
+            _product.image = (imgAnimal.Text);
+            if (string.IsNullOrWhiteSpace(_product.NameOfTheAnimal))
+                errors.AppendLine("Укажите название животного");
+
+            if (errors.Length > 0)
             {
-                ODBConnectHelper.entObj.Product.Add(_product);
+                MessageBox.Show(errors.ToString());
+                return;
             }
-            try
-            {
-                ODBConnectHelper.entObj.SaveChanges();
-                MessageBox.Show("Сохранено");
-                FrameApp.frmObj.GoBack();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Неверный формат данных");
-            }
+                if (_product.id == 0)
+                    ODBConnectHelper.entObj.Animal.Add(_product);
+                try
+                {
+                    ODBConnectHelper.entObj.SaveChanges();
+                    MessageBox.Show("Информация сохранена!");
+                    FrameApp.frmObj.GoBack();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            
+
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -54,6 +99,51 @@ namespace Gazprom.Users
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             FrameApp.frmObj.GoBack();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void ComboKind_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+         
+        }
+
+        private void CmbClimat_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+         
+        }
+
+        private void CmbCell_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void EditAnimal_Click(object sender, RoutedEventArgs e)
+        {
+            Image image = new Image();
+            if (!Directory.Exists("AnimalImage"))
+            {
+                Directory.CreateDirectory("AnimalImage");
+            }
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image files (*.png;*.jpeg;*.jpg)| *.png;*.jpeg;*.jpg|All files(*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                MessageBox.Show(Environment.CurrentDirectory + "\\" + System.IO.Path.GetFileName(openFileDialog.FileName));
+                if (!File.Exists("AnimalImage\\" + System.IO.Path.GetFileName(openFileDialog.FileName)))
+                {
+                    File.Copy(openFileDialog.FileName, Environment.CurrentDirectory + "\\AnimalImage\\" + System.IO.Path.GetFileName(openFileDialog.FileName));
+                }
+            }
+            imgAnimal.Text = (Environment.CurrentDirectory + "\\AnimalImage\\" + System.IO.Path.GetFileName(openFileDialog.FileName)).ToString();
+        }
+
+        private void imgAnimal_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -4,5 +4,7 @@
              xmlns:local="clr-namespace:Gazprom"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <SolidColorBrush x:Key="CommonBackground">White</SolidColorBrush>
+        
     </Application.Resources>
 </Application>

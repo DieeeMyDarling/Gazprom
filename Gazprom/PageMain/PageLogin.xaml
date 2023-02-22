@@ -25,8 +25,9 @@
 
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                    <GradientStop Color="White" Offset="0"/>
-                    <GradientStop Color="Black" Offset="4"/>
+                    <GradientStop Color="#FF997C4F" Offset="0"/>
+                    <GradientStop Color="White" Offset="4"/>
+                    <GradientStop Color="#FF997E57" Offset="0.191"/>
                 </LinearGradientBrush>
             </Border.Background>
 
@@ -52,79 +53,6 @@
                                Grid.Column="0"
                                VerticalAlignment="Center"
                                Margin="10,0,0,0"/>
-
-                    <Button x:Name="btnMinimize"                           
-                            BorderThickness="0"
-                            Content="-"
-                            Foreground="White"
-                            FontSize="16"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
-                            Grid.Column="1"
-                            Click="btnMinimize_Click">
-
-
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="#FF0D78BA"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#FFFF00D7"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="18" Height="18"
-                                        CornerRadius="9"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
-                                                      HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-
-                    </Button>
-
-
-
-
-
-
-                    <Button x:Name="btnClose"                          
-                            BorderThickness="0"
-                            Content="X"
-                            Foreground="White"
-                            FontSize="12"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
-                            Grid.Column="2"
-                            Click="btnClose_Click">
-
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="#FF0D78BA"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#FFFF00D7"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="18" Height="18"
-                                        CornerRadius="9"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
-                                                      HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
                 </Grid>
 
                 <StackPanel
@@ -133,11 +61,11 @@
                             VerticalAlignment="Center"
                     HorizontalAlignment="Center">
 
-                    <Image Source="/Images/Logo.png"
+                    <Image Source="/images/Logo.png"
                            Width="106" Height="83"/>
 
                     <TextBlock  Text="Авторизация"
-                               Foreground="Black"
+                               Foreground="White"
                                
                                                     
                                FontSize="25"
@@ -148,12 +76,12 @@
 
 
 
-                    <TextBlock Text="Имя пользователя"
+                    <TextBlock
                                Foreground="Black"
                                FontSize="12"
                                FontWeight="Medium"
                                FontFamily="Montserrat"                             
-                               Margin="0,35,0,0"/>
+                               Margin="0,35,0,0"><Run Foreground="White" Text="Имя "/><Run Foreground="White" Text="пользователя"/></TextBlock>
 
                     <TextBox x:Name="txtUser"
                              FontSize="13"
@@ -167,16 +95,14 @@
                              Height="20"
                              VerticalContentAlignment="Center"
                              Margin="0,5,0,0"
-                             Padding="20,0,0,0" TextChanged="txtUser_TextChanged">
+                             Padding="20,0,0,0" TextChanged="txtUser_TextChanged"/>
 
-                    </TextBox>
-
-                    <TextBlock Text="Пароль"
+                    <TextBlock
                                Foreground="Black"
                                FontSize="12"
                                FontWeight="Medium"
                                FontFamily="Montserrat"                             
-                               Margin="0,15,0,0"/>
+                               Margin="0,15,0,0"><Run Foreground="White" Text="Пароль"/></TextBlock>
 
                     <PasswordBox x:Name="txtPass"
                              
@@ -190,9 +116,7 @@
                              Height="20"
                              VerticalContentAlignment="Center"
                              Margin="0,5,0,0"
-                             Padding="20,0,0,0">
-
-                    </PasswordBox>
+                             Padding="20,0,0,0"/>
 
                     <Button x:Name="btnLogin"                          
                             BorderThickness="0"
@@ -202,7 +126,7 @@
                             FontFamily="Montserrat"
                             Cursor="Hand"                           
                             Margin="0,50,0,0"
-                            Click="btnLogin_Click" Height="43">
+                            Click="btnLogin_Click" Height="43" Background="#FF427042">
 
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
@@ -229,11 +153,11 @@
                     <Button x:Name="btnReg"                          
                             BorderThickness="0"
                             Content="Регистрация"
-                            Foreground="White"
+                            Foreground="white"
                             FontSize="12"
                             FontFamily="Montserrat"
                             Cursor="Hand"
-                            Click="btnReg_Click" Height="43" Margin="10">
+                            Click="btnReg_Click" Height="43" Margin="10" Background="#FF427042">
 
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
@@ -260,11 +184,45 @@
 
                     <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Center"
-                                Margin="0,15,0,0">
+                                Margin="0,15,0,0"/>
 
+                </StackPanel>
+                <StackPanel
+                    Width="300"
+                    Height="280"
+                    Grid.Row="2"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5">
+                    <StackPanel.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-67.326"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </StackPanel.RenderTransform>
 
-                    </StackPanel>
+                    <Image Margin="0,0,0,0" Width="300" VerticalAlignment="Stretch" HorizontalAlignment="Left" Source = "/images/lapa.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="40.603"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
 
+                    </Image>
+                </StackPanel>
+                <StackPanel
+                    Width="300"
+                    Height="290"
+                    Grid.Row="2"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Left">
+                    <Image Width="290" Source="/images/car.png">
+
+                    </Image>
                 </StackPanel>
             </Grid>
         </Border>

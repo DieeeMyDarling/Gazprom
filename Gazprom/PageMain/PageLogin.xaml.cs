@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Gazprom.DataBase;
 using Gazprom.Users;
 
+
 namespace Gazprom.PageMain
 {
     /// <summary>
@@ -56,14 +57,14 @@ namespace Gazprom.PageMain
                 }
                 else
                 {
-                    switch (userObj.IdRole)
+                    switch (userObj.idRole)
                     {
                         case 2:
                             FrameApp.frmObj.Navigate(new PageSklad());
                             break;
 
                         case 1:
-                            FrameApp.frmObj.Navigate(new PageSklad());
+                            FrameApp.frmObj.Navigate(new PageVet());
                             break;
 
                     }

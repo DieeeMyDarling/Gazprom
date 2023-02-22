@@ -26,15 +26,16 @@ namespace Gazprom.Users
         public PageSklad()
         {
             InitializeComponent();
-            MaterialList.ItemsSource = ODBConnectHelper.entObj.Product.Where(x => x.Name.Contains(TxbSearch.Text)).Take(15).ToList();
-            ResultTxb.Text = MaterialList.Items.Count + "/" + ODBConnectHelper.entObj.Product.Where(x => x.Name.Contains(TxbSearch.Text)).Count().ToString();
+            //MaterialList.ItemsSource = ODBConnectHelper.entObj.Animal.ToList();
+            Animal.ItemsSource = ODBConnectHelper.entObj.Animal.ToList(); 
+
         }
 
         private void TxbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
             {
-                MaterialList.ItemsSource = ODBConnectHelper.entObj.Product.Where(x => x.Name.Contains(TxbSearch.Text)).Take(15).ToList();
+                //MaterialList.ItemsSource = ODBConnectHelper.entObj.Animal.Where(x => x.NameOfTheAnimal.Contains(TxbSearch.Text)).Take(15).ToList();
 
             }
             catch (Exception ex)
@@ -45,27 +46,60 @@ namespace Gazprom.Users
 
         private void MaterialList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            try
-            {
-
-                MaterialList.ItemsSource = ODBConnectHelper.entObj.Product.Take(15).ToList();
-
-                ResultTxb.Text = MaterialList.Items.Count + "/" + ODBConnectHelper.entObj.Product.Count().ToString();
-            }
-            catch (Exception except)
-            {
-                MessageBox.Show(except.Message, "Упс, что-то пошло не так!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-            }
+           
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            FrameApp.frmObj.Navigate(new PageAdd(null));
+            FrameApp.frmObj.Navigate(new PageVet());
         }
 
         private void CHX1_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            FrameApp.frmObj.Navigate(new PageAdd((sender as Button).DataContext as Animal));
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                ODBConnectHelper.entObj.ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                Animal.ItemsSource = ODBConnectHelper.entObj.Animal.ToList();
+            }
+        }
+
+        private void BtnDel_Click(object sender, RoutedEventArgs e)
+        {
+            var animalsForRemoving = Animal.SelectedItems.Cast<Animal>().ToList();
+
+            if (MessageBox.Show($"Вы точно хотите удалить {animalsForRemoving.Count()} элементов", "Внимание",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+               
+          
+            {
+                try
+                {
+                    ODBConnectHelper.entObj.Animal.RemoveRange(animalsForRemoving);
+                    ODBConnectHelper.entObj.SaveChanges();
+                    MessageBox.Show("Данные удалены");
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+            FrameApp.frmObj.Refresh();
+            
         }
     }
 }
