@@ -24,7 +24,7 @@ namespace Gazprom.Users
         public PageMedCard()
         {
             InitializeComponent();
-            Animal_card.it = ODBConnectHelper.entObj.Animal_card.ToList();
+            MedCard.ItemsSource = ODBConnectHelper.entObj.Animal_card.ToList();
         }
 
         private void MaterialList_SelectionChanged(object sender, SelectionChangedEventArgs e)

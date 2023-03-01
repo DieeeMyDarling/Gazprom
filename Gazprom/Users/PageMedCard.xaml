@@ -39,49 +39,26 @@
 
 
         </StackPanel>
-        <ListView x:Name="Animal"
+        <DataGrid x:Name="MedCard"
+                  AutoGenerateColumns="False"
                   SelectionChanged="MaterialList_SelectionChanged"
                   Grid.Row="1"
                   Foreground="Black"
                   Background="#FFFCF5E6">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Животное" Binding="{Binding Animal.NameOfTheAnimal}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Рост"/>
+                <DataGridTextColumn Width="*" Header="Вес"/>
+                <DataGridTextColumn Width="*" Header="Переболел боленями"/>
+                <DataGridTextColumn Width="*" Header="Прививки"/>
+            </DataGrid.Columns>
 
-            <ListView.ItemTemplate>
-                <DataTemplate>
-
-                    <StackPanel Orientation="Horizontal">
-
-
-
-                        <Image Height="150"
-                               Width="150"
-                               Source="{Binding image}"/>
-
-
-
-                        <StackPanel Margin="30,40,0,0">
-                            <StackPanel Orientation="Horizontal">
-
-
-                                <Label Content="{Binding NameOfTheAnimal}"/>
-                                <Label Content=" | "/>
-                                <Label Content="{Binding nickname}"/>
-
-
-                            </StackPanel>
-
-                            <Button Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Click"></Button>
-                        </StackPanel>
-                    </StackPanel>
-
-
-                </DataTemplate>
-
-            </ListView.ItemTemplate>
+          
 
 
 
 
-        </ListView>
+        </DataGrid>
         <Button Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Height="40" Margin="0,0,140,0" Content="Добавить" Click="Button_Click" Background="#FFFCF5E6"/>
         <Button Grid.Row="2" Name="BtnDel" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Height="40" Margin="0,0,20,0" Content="Удалить" Click="BtnDel_Click" Background="#FFFCF5E6"/>
         <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="40" Margin="0,0,20,5" Content="Назад" Click="Button_Click_1" Background="#FFFCF5E6"/>
