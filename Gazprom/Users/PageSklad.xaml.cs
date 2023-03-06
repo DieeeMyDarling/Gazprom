@@ -77,7 +77,7 @@ namespace Gazprom.Users
                 }
                 else if (Filtr.SelectedIndex == 3)
                 {
-                    /*апвыапр*/
+             
                 }
             }
             catch (Exception ex) { 
