@@ -41,7 +41,7 @@ namespace Gazprom.Users
                 
             }
                 DataContext = _product;
-                ComboKind.ItemsSource = ODBConnectHelper.entObj.Kind.ToList();
+                View.ItemsSource = ODBConnectHelper.entObj.Kind.ToList();
             CmbCell.ItemsSource = ODBConnectHelper.entObj.Cell.ToList();
             CmbClimat.ItemsSource = ODBConnectHelper.entObj.Climate_zone.ToList();
 
@@ -65,7 +65,7 @@ namespace Gazprom.Users
             StringBuilder errors = new StringBuilder();
             _product.idCell = (CmbCell.SelectedItem as Cell).id;
             _product.idClimatZone = (CmbClimat.SelectedItem as Climate_zone).id;
-            _product.idKind = (ComboKind.SelectedItem as Kind).id;
+            _product.idKind = (View.SelectedItem as Kind).id;
             _product.image = (imgAnimal.Text);
             if (string.IsNullOrWhiteSpace(_product.NameOfTheAnimal))
                 errors.AppendLine("Укажите название животного");
@@ -108,7 +108,19 @@ namespace Gazprom.Users
 
         private void ComboKind_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-         
+///*            var r = View.SelectedItem as Animal;*/
+//           /* var c = ODBConnectHelper.entObj.Animal.Where(x => x.Kind.id ==View.SelectedIndex).FirstOrDefault();
+//            int f = Convert.ToInt32(c);*/
+
+//            if (View.SelectedIndex == 0)
+//            {
+//                tdttest.Text = "пизщдец";
+//            }
+//            if (View.SelectedIndex == 1)
+//            {
+//                tdttest.Text = "пизfgjhjhhfgщдец";
+//            }
+
         }
 
         private void CmbClimat_SelectionChanged(object sender, SelectionChangedEventArgs e)

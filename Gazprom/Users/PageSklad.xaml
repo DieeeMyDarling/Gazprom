@@ -31,8 +31,17 @@
                      VerticalAlignment="Center"
                      HorizontalAlignment="Left"
                      />
-            <ComboBox BorderBrush="#FFFCF5E6" VerticalAlignment="Center"
-                      Height="23" Width="140" Background="Black" Foreground="Black" SelectionChanged="ComboBox_SelectionChanged" Margin="0,0,0,0"/>
+            <ComboBox  x:Name="Filtr" 
+                Text="Фильтрация"
+                      BorderBrush="#FFFCF5E6" VerticalAlignment="Center"
+                      IsEditable="True"
+                Height="23" Width="140" Background="Black" Foreground="Black" SelectionChanged="ComboBox_SelectionChanged" Margin="0,0,0,0">
+                <TextBlock>Всё</TextBlock>
+                <TextBlock>Хищники</TextBlock>
+                <TextBlock>Травоядные</TextBlock>
+                <TextBlock>Мужской</TextBlock>
+                <TextBlock>Женский пол</TextBlock>
+            </ComboBox>
 
 
 
@@ -58,22 +67,21 @@
 
         <ListView x:Name="Animal"
                   SelectionChanged="MaterialList_SelectionChanged"
-                  Grid.Row="1"
                   Foreground="Black"
-                  Background="#FFFCF5E6">
+                  Background="#FFFCF5E6" Margin="0,48,0,2" Grid.RowSpan="2">
 
             <ListView.ItemTemplate>
                 <DataTemplate>
 
                     <StackPanel Orientation="Horizontal">
 
-              
-                           
-                                <Image Height="150"
+
+
+                        <Image Height="150"
                                Width="150"
                                Source="{Binding image}"/>
-                     
-                        
+
+
 
                         <StackPanel Margin="30,40,0,0">
                             <StackPanel Orientation="Horizontal">
@@ -85,7 +93,7 @@
 
 
                             </StackPanel>
-                     
+
                             <Button Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Click"></Button>
                         </StackPanel>
                     </StackPanel>
@@ -101,7 +109,7 @@
         </ListView>
         <Button Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Height="40" Margin="0,0,140,0" Content="Добавить" Click="Button_Click" Background="#FFFCF5E6"/>
         <Button Grid.Row="2" Name="BtnDel" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Height="40" Margin="0,0,20,0" Content="Удалить" Click="BtnDel_Click" Background="#FFFCF5E6"/>
-        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="40" Margin="0,0,20,5" Content="Назад" Click="Button_Click" Background="#FFFCF5E6"/>
+        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="40" Margin="0,0,20,5" Content="Назад" Click="Button_Click_1" Background="#FFFCF5E6"/>
         <Image Source="/Images/Logo.png" Width="126" VerticalAlignment="Center" HorizontalAlignment="Left"/>
     </Grid>
 </Page>

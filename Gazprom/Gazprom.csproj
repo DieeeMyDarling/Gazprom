@@ -135,6 +135,9 @@
     <Compile Include="Users\PageAdd.xaml.cs">
       <DependentUpon>PageAdd.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Users\PageDirector.xaml.cs">
+      <DependentUpon>PageDirector.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Users\PageMedCard.xaml.cs">
       <DependentUpon>PageMedCard.xaml</DependentUpon>
     </Compile>
@@ -166,6 +169,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Users\PageAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Users\PageDirector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

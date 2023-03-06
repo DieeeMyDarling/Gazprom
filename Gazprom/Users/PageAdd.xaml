@@ -27,7 +27,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Вид животного"></TextBlock>
+        <TextBlock x:Name="tdttest" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Вид животного"></TextBlock>
         <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Клетка"></TextBlock>
         <TextBlock Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Климатическая зона"></TextBlock>
         <TextBlock Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Название животного"></TextBlock>
@@ -37,7 +37,7 @@
         <TextBlock Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Возраст животного"></TextBlock>
         <TextBlock Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Количество потомства"></TextBlock>
         <TextBlock Grid.Row="10" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Путь к картинке"></TextBlock>
-        <ComboBox SelectedItem="{Binding Kind}" DisplayMemberPath="title" Grid.Column="1" Grid.Row="1"  Name="ComboKind"  SelectionChanged="ComboKind_SelectionChanged"></ComboBox>
+        <ComboBox SelectedItem="{Binding Kind}" x:Name="View" DisplayMemberPath="title" Grid.Column="1" Grid.Row="1"   SelectionChanged="ComboKind_SelectionChanged"></ComboBox>
         <ComboBox Name="CmbCell" SelectedItem="{Binding Cell}" DisplayMemberPath="number"    Grid.Row="2" Grid.Column="2" SelectionChanged="CmbCell_SelectionChanged" ></ComboBox>
         <ComboBox Name="CmbClimat" SelectedItem="{Binding Climate_zone}" DisplayMemberPath="climateZone"  Grid.Row="3" Grid.Column="2" SelectionChanged="CmbClimat_SelectionChanged" ></ComboBox>
         <TextBox Text="{Binding NameOfTheAnimal}" Grid.Row="4" Grid.Column="2" ></TextBox> 

@@ -51,7 +51,7 @@ namespace Gazprom.Users
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            FrameApp.frmObj.Navigate(new PageVet());
+            FrameApp.frmObj.Navigate(new PageAdd((sender as Button).DataContext as Animal));
         }
 
         private void CHX1_Click(object sender, RoutedEventArgs e)
@@ -61,7 +61,27 @@ namespace Gazprom.Users
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            try
+            {
+                if (Filtr.SelectedIndex == 0)
+                {
+                    Animal.ItemsSource = ODBConnectHelper.entObj.Animal.ToList();
+                }
+                else if (Filtr.SelectedIndex == 1) 
+                {                                                                      
+                    Animal.ItemsSource = ODBConnectHelper.entObj.Animal.Where(x => x.Kind.id == Filtr.SelectedIndex).ToList();
+                }
+                else if (Filtr.SelectedIndex == 2)
+                {
+                    Animal.ItemsSource = ODBConnectHelper.entObj.Animal.Where(x => x.Kind.id == Filtr.SelectedIndex).ToList();
+                }
+                else if (Filtr.SelectedIndex == 3)
+                {
+                    
+                }
+            }
+            catch (Exception ex) { 
+            }
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
@@ -100,6 +120,11 @@ namespace Gazprom.Users
             }
             FrameApp.frmObj.Refresh();
             
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            FrameApp.frmObj.GoBack();
         }
     }
 }

@@ -60,7 +60,7 @@ namespace Gazprom.PageMain
                     switch (userObj.idRole)
                     {
                         case 2:
-                            FrameApp.frmObj.Navigate(new PageSklad());
+                            FrameApp.frmObj.Navigate(new PageDirector());
                             break;
 
                         case 1:
