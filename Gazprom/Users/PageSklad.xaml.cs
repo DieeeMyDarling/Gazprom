@@ -86,7 +86,7 @@ namespace Gazprom.Users
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            FrameApp.frmObj.Navigate(new PageAdd((sender as Button).DataContext as Animal));
+            trameApp.frmObj.Navigate(new PageAdd((sender as Button).DataContext as Animal));
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
