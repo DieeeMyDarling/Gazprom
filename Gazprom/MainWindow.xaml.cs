@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using System.Windows.Controls;
 using Gazprom.PageMain;
 using Gazprom.DataBase;
+using Gazprom.Users;
+
 
 
 namespace Gazprom
@@ -28,7 +30,7 @@ namespace Gazprom
         {
             InitializeComponent();
             FrameApp.frmObj = FrmMain;
-            FrmMain.Navigate(new PageLogin());
+            FrmMain.Navigate(new PageVet());
             ODBConnectHelper.entObj = new ZooEntities1();
         }
 
