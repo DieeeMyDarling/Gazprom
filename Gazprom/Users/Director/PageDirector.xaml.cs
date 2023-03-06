@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Gazprom.Users;
+using Gazprom.Users.Director;
 
 namespace Gazprom.Users
 {
@@ -32,12 +34,12 @@ namespace Gazprom.Users
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            FrameApp.frmObj.Navigate (new PageProsmotrSotrudnikov());
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-
+            FrameApp.frmObj.Navigate(new PageProsmotrSotrudnikov());
         }
     }
 }

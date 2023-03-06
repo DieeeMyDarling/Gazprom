@@ -132,6 +132,12 @@
     <Compile Include="DataBase\Worker.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Users\Director\PageProsmotrPostavshikov.xaml.cs">
+      <DependentUpon>PageProsmotrPostavshikov.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Users\Director\PageProsmotrSotrudnikov.xaml.cs">
+      <DependentUpon>PageProsmotrSotrudnikov.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Users\PageAdd.xaml.cs">
       <DependentUpon>PageAdd.xaml</DependentUpon>
     </Compile>
@@ -165,6 +171,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageMain\PageRegistration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Users\Director\PageProsmotrPostavshikov.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Users\Director\PageProsmotrSotrudnikov.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
