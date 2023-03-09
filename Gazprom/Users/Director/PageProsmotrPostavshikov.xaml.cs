@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gazprom.DataBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,37 @@ namespace Gazprom.Users.Director
         public PageProsmotrPostavshikov()
         {
             InitializeComponent();
+            Postavshik.ItemsSource = ODBConnectHelper.entObj.Feed_supply.ToList();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            FrameApp.frmObj.Navigate(new PageDirector());
+        }
+
+        private void BtnDel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TxbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Medcard_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -817,7 +817,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ZooEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ZooEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Animal" EntityType="Self.Animal" />
           <EntitySet Name="Animal_card" EntityType="Self.Animal_card" />
           <EntitySet Name="Animal_worker" EntityType="Self.Animal_worker" />
@@ -905,7 +905,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище ZooModelContainer" CdmEntityContainer="ZooEntities1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ZooModelContainer" CdmEntityContainer="ZooEntities2">
           <EntitySetMapping Name="Animal">
             <EntityTypeMapping TypeName="ZooModel.Animal">
               <MappingFragment StoreEntitySet="Animal">

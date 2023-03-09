@@ -30,8 +30,8 @@ namespace Gazprom
         {
             InitializeComponent();
             FrameApp.frmObj = FrmMain;
-            FrmMain.Navigate(new PageVet());
-            ODBConnectHelper.entObj = new ZooEntities1();
+            FrmMain.Navigate(new PageLogin());
+            ODBConnectHelper.entObj = new ZooEntities2();
         }
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)

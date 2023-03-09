@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gazprom.DataBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,11 +24,12 @@ namespace Gazprom.Users.Director
         public PageProsmotrSotrudnikov()
         {
             InitializeComponent();
+            Sotrudnik.ItemsSource = ODBConnectHelper.entObj.Worker.ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            FrameApp.frmObj.Navigate(new PageDirector());
         }
 
         private void BtnDel_Click(object sender, RoutedEventArgs e)

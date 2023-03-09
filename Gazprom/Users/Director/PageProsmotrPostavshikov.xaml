@@ -9,6 +9,61 @@
       Title="PageProsmotrPostavshikov">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#FF997E57"  ></Grid>
+        <Grid Grid.Row="2" Background="#FF997E57"/>
+
+
+
+        <StackPanel Orientation="Horizontal"
+                   
+                    Height="70"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <TextBox Grid.Row="1" Width="250"
+                     
+                     FontSize="16"
+                     TextChanged="TxbSearch_TextChanged"
+                     Name="TxbSearch" Background="#FFFCF5E6"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Left"
+                     />
+            <ComboBox BorderBrush="#FFFCF5E6" VerticalAlignment="Center"
+                      Height="23" Width="140" Background="Black" Foreground="Black" SelectionChanged="ComboBox_SelectionChanged" Margin="0,0,0,0"/>
+
+
+
+
+        </StackPanel>
+        <DataGrid x:Name="Postavshik"
+                  AutoGenerateColumns="False"
+                  SelectionChanged="Medcard_SelectionChanged"
+                  Grid.Row="1"
+                  Foreground="Black"
+                  Background="#FFFCF5E6">
+            <DataGrid.Columns >
+                <DataGridTextColumn Width="*" Header="Поставщик" Binding="{Binding The_supplier.title}"  ></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Корм" Binding="{Binding Feed.title}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Дата" Binding="{Binding date}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header ="Цена покупки" Binding="{Binding price}" ></DataGridTextColumn>
+
+
+            </DataGrid.Columns>
+
+
+
+
+
+        </DataGrid>
+
+        <Button Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Height="40" Margin="0,0,140,0" Content="Добавить" Click="Button_Click_1" Background="#FFFCF5E6"/>
+        <Button Grid.Row="2" Name="BtnDel" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Height="40" Margin="0,0,20,0" Content="Удалить" Click="BtnDel_Click" Background="#FFFCF5E6"/>
+        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="40" Margin="0,0,20,5" Content="Назад" Click="Button_Click" Background="#FFFCF5E6"/>
+        <Image Source="/Images/Logo.png" Width="126" VerticalAlignment="Center" HorizontalAlignment="Left"/>
     </Grid>
+   
 </Page>

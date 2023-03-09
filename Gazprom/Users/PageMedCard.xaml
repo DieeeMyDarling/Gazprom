@@ -49,10 +49,10 @@
                 <DataGridTextColumn Width="*" Header="Животное" Binding="{Binding Animal.NameOfTheAnimal}"  ></DataGridTextColumn>
                 <DataGridTextColumn Width="*" Header="Кличка" Binding="{Binding Animal.nickname}"/>
                 <DataGridTextColumn Width="*" Header="Рост" Binding="{Binding height}" />
-                <DataGridTextColumn Width="*" Header="Вес"/>
-                <DataGridTextColumn Width="*" Header="Болезни"/>
-                <DataGridTextColumn Width="*" Header = "Прививки"/>
-                
+                <DataGridTextColumn Width="*" Header="Вес" Binding="{Binding weight}"/>
+                <DataGridTextColumn Width="*" Header="Болезни" Binding="{Binding disease}"/>
+                <DataGridTextColumn Width="*" Header = "Прививки" Binding="{Binding vaccinations}"/>
+
 
             </DataGrid.Columns>
            

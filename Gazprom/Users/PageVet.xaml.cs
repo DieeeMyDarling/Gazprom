@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Gazprom.PageMain;
 namespace Gazprom.Users
 {
     /// <summary>
@@ -38,6 +38,11 @@ namespace Gazprom.Users
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             FrameApp.frmObj.Navigate(new PageMedCard());
+        }
+
+        private void BtnDel_Click(object sender, RoutedEventArgs e)
+        {
+            FrameApp.frmObj.Navigate(new PageLogin());
         }
     }
 }

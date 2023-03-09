@@ -13,10 +13,10 @@ namespace Gazprom.DataBase
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ZooEntities1 : DbContext
+    public partial class ZooEntities2 : DbContext
     {
-        public ZooEntities1()
-            : base("name=ZooEntities1")
+        public ZooEntities2()
+            : base("name=ZooEntities2")
         {
         }
     

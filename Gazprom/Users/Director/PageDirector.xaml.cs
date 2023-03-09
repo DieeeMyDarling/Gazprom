@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Gazprom.Users;
 using Gazprom.Users.Director;
-
+using Gazprom.PageMain;
 namespace Gazprom.Users
 {
     /// <summary>
@@ -39,7 +39,12 @@ namespace Gazprom.Users
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            FrameApp.frmObj.Navigate(new PageProsmotrSotrudnikov());
+            FrameApp.frmObj.Navigate(new PageProsmotrPostavshikov());
+        }
+
+        private void BtnDel_Click(object sender, RoutedEventArgs e)
+        {
+            FrameApp.frmObj.Navigate(new PageLogin());
         }
     }
 }

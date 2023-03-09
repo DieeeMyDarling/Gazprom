@@ -59,7 +59,7 @@
             </Image.RenderTransform>
         </Image>
         <Image Source="/images/pngwing.com (6).png" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="200" Height="300" Margin="20,0,0,20" />
-
+        <Button Grid.Row="2" Name="BtnDel" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Height="40" Margin="0,20,20,0" Content="Выйти" Click="BtnDel_Click" Background="#FFFCF5E6"/>
 
 
     </Grid>

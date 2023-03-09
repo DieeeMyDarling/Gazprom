@@ -39,16 +39,16 @@
 
 
         </StackPanel>
-        <DataGrid x:Name="Medcard"
+        <DataGrid x:Name="Sotrudnik"
                   AutoGenerateColumns="False"
                   SelectionChanged="Medcard_SelectionChanged"
                   Grid.Row="1"
                   Foreground="Black"
                   Background="#FFFCF5E6">
             <DataGrid.Columns >
-                <DataGridTextColumn Width="*" Header="ФИО" Binding="{Binding worker.fullName}"  ></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="ФИО" Binding="{Binding fullName}"  ></DataGridTextColumn>
                 <DataGridTextColumn Width="*" Header = "Должность" Binding="{Binding Post.title}"/>
-                <DataGridTextColumn Width="*" Header="Дата устройства" Binding="{Binding dataOfEmployment}"/>
+                <DataGridTextColumn Width="*" Header="Дата устройства" Binding="{Binding dateOfEmployment}"/>
                 <DataGridTextColumn Width="*" Header="Пол" Binding="{Binding gender}" />
                 <DataGridTextColumn Width="*" Header="Дата рождения" Binding="{Binding dateOfBrith}"/>
                 <DataGridTextColumn Width="*" Header="Размер зарплаты" Binding="{Binding pay}"/>

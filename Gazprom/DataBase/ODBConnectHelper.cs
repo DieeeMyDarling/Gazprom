@@ -8,6 +8,6 @@ namespace Gazprom.DataBase
 {
     internal class ODBConnectHelper
     {
-        public static ZooEntities1 entObj;
+        public static ZooEntities2 entObj;
     }
 }
