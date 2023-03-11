@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Gazprom.Users;
+using Gazprom.Users.Vet;
 
 namespace Gazprom.Users.Director
 {
@@ -22,10 +23,12 @@ namespace Gazprom.Users.Director
     /// </summary>
     public partial class PageProsmotrSotrudnikov : Page
     {
+        private Worker _addSupplie = new Worker();
+
         public PageProsmotrSotrudnikov()
         {
             InitializeComponent();
-            Sotrudnik.ItemsSource = ODBConnectHelper.entObj.Worker.ToList();
+            //Sotrudnik.ItemsSource = ODBConnectHelper.entObj.Worker.ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,7 +43,7 @@ namespace Gazprom.Users.Director
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            FrameApp.frmObj.Navigate(new PageAddSotrudnik(null));
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -56,6 +59,20 @@ namespace Gazprom.Users.Director
         private void TxbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            FrameApp.frmObj.Navigate(new PageAddSotrudnik((sender as Button).DataContext as Worker)) ;
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                ODBConnectHelper.entObj.ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                Sotrudnik.ItemsSource = ODBConnectHelper.entObj.Worker.ToList();
+            }
         }
     }
 }

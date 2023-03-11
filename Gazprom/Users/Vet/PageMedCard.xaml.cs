@@ -36,12 +36,30 @@ namespace Gazprom.Users
 
         private void BtnDel_Click(object sender, RoutedEventArgs e)
         {
+            var animalsForRemoving = Medcard.SelectedItems.Cast<Animal_card>().ToList();
 
+            if (MessageBox.Show($"Вы точно хотите удалить {animalsForRemoving.Count()} элементов", "Внимание",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+
+
+            {
+                try
+                {
+                    ODBConnectHelper.entObj.Animal_card.RemoveRange(animalsForRemoving);
+                    ODBConnectHelper.entObj.SaveChanges();
+                    MessageBox.Show("Данные удалены");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+            FrameApp.frmObj.Refresh();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            FrameApp.frmObj.Navigate (new PageAddMedCard());
+            FrameApp.frmObj.Navigate (new PageAddMedCard(null));
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -51,7 +69,7 @@ namespace Gazprom.Users
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -66,7 +84,7 @@ namespace Gazprom.Users
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-
+            FrameApp.frmObj.Navigate(new PageAddMedCard((sender as Button).DataContext as Animal_card));
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

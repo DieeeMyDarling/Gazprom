@@ -24,11 +24,17 @@ namespace Gazprom.Users.Vet
     {
         private Animal_card _addCard = new Animal_card();
 
-       
 
-        public PageAddMedCard()
+
+        public PageAddMedCard(Animal_card selectedAnimal_card)
         {
             InitializeComponent();
+
+            if(selectedAnimal_card != null)
+            {
+                _addCard = selectedAnimal_card;
+            }
+
             DataContext = _addCard;
             CmbClichka.ItemsSource = ODBConnectHelper.entObj.Animal.ToList();
             Nazv.ItemsSource = ODBConnectHelper.entObj.Animal.ToList();
@@ -36,7 +42,7 @@ namespace Gazprom.Users.Vet
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            FrameApp.frmObj.Navigate(new PageMedCard());
         }
 
         private void EditAnimal_Click(object sender, RoutedEventArgs e)
