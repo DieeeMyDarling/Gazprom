@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Gazprom.DataBase;
+using Gazprom.PageMain;
+using Gazprom.Users.Vet;
 
 namespace Gazprom.Users
 {
@@ -24,7 +26,7 @@ namespace Gazprom.Users
         public PageMedCard()
         {
             InitializeComponent();
-            Medcard.ItemsSource = ODBConnectHelper.entObj.Animal_card.ToList();
+            //Medcard.ItemsSource = ODBConnectHelper.entObj.Animal_card.ToList();
         }
 
         private void MaterialList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -39,7 +41,7 @@ namespace Gazprom.Users
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            FrameApp.frmObj.Navigate (new PageAddMedCard());
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -60,6 +62,20 @@ namespace Gazprom.Users
         private void TxbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                ODBConnectHelper.entObj.ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                Medcard.ItemsSource = ODBConnectHelper.entObj.Animal_card.ToList();
+            }
         }
     }
 }

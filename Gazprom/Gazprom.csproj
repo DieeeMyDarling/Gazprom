@@ -138,19 +138,22 @@
     <Compile Include="Users\Director\PageProsmotrSotrudnikov.xaml.cs">
       <DependentUpon>PageProsmotrSotrudnikov.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Users\PageAdd.xaml.cs">
+    <Compile Include="Users\Vet\PageAdd.xaml.cs">
       <DependentUpon>PageAdd.xaml</DependentUpon>
     </Compile>
     <Compile Include="Users\Director\PageDirector.xaml.cs">
       <DependentUpon>PageDirector.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Users\PageMedCard.xaml.cs">
+    <Compile Include="Users\Vet\PageAddMedCard.xaml.cs">
+      <DependentUpon>PageAddMedCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Users\Vet\PageMedCard.xaml.cs">
       <DependentUpon>PageMedCard.xaml</DependentUpon>
     </Compile>
     <Compile Include="Users\PageSklad.xaml.cs">
       <DependentUpon>PageSklad.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Users\PageVet.xaml.cs">
+    <Compile Include="Users\Vet\PageVet.xaml.cs">
       <DependentUpon>PageVet.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -182,7 +185,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Users\PageAdd.xaml">
+    <Page Include="Users\Vet\PageAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -190,7 +193,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Users\PageMedCard.xaml">
+    <Page Include="Users\Vet\PageAddMedCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Users\Vet\PageMedCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -198,7 +205,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Users\PageVet.xaml">
+    <Page Include="Users\Vet\PageVet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

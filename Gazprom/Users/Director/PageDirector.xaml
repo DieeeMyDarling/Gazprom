@@ -30,7 +30,7 @@
                 </Button.Template>
 
             </Button>
-            <Button Content="Просмотр информации о поставщиках" Background="#FF346134"
+            <Button Content="Просмотр информации о поставках" Background="#FF346134"
                 Foreground="White"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
