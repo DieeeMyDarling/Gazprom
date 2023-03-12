@@ -13,32 +13,38 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Gazprom.Users;
-using Gazprom.Users.Vet;
 
-namespace Gazprom.Users.Director
+namespace Gazprom.Users.Admin
 {
     /// <summary>
-    /// Логика взаимодействия для PageProsmotrSotrudnikov.xaml
+    /// Логика взаимодействия для PageUsers.xaml
     /// </summary>
-    public partial class PageProsmotrSotrudnikov : Page
+    public partial class PageUsers : Page
     {
-        private Worker _addSupplie = new Worker();
-
-        public PageProsmotrSotrudnikov()
+        public PageUsers()
         {
             InitializeComponent();
-            //Sotrudnik.ItemsSource = ODBConnectHelper.entObj.Worker.ToList();
+            Users.ItemsSource = ODBConnectHelper.entObj.User.ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            FrameApp.frmObj.Navigate(new PageDirector());
+           
+        }
+
+        private void Users_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            FrameApp.frmObj.Navigate(new PageAdmin());
         }
 
         private void BtnDel_Click(object sender, RoutedEventArgs e)
         {
-            var animalsForRemoving = Sotrudnik.SelectedItems.Cast<Worker>().ToList();
+            var animalsForRemoving = Users.SelectedItems.Cast<User>().ToList();
 
             if (MessageBox.Show($"Вы точно хотите удалить {animalsForRemoving.Count()} элементов", "Внимание",
                 MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
@@ -47,7 +53,7 @@ namespace Gazprom.Users.Director
             {
                 try
                 {
-                    ODBConnectHelper.entObj.Worker.RemoveRange(animalsForRemoving);
+                    ODBConnectHelper.entObj.User.RemoveRange(animalsForRemoving);
                     ODBConnectHelper.entObj.SaveChanges();
                     MessageBox.Show("Данные удалены");
                 }
@@ -59,17 +65,12 @@ namespace Gazprom.Users.Director
             FrameApp.frmObj.Refresh();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            FrameApp.frmObj.Navigate(new PageAddSotrudnik(null));
+            FrameApp.frmObj.Navigate(new PageAddUsers(null));
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void Medcard_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
@@ -79,17 +80,12 @@ namespace Gazprom.Users.Director
 
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            FrameApp.frmObj.Navigate(new PageAddSotrudnik((sender as Button).DataContext as Worker)) ;
-        }
-
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
             {
                 ODBConnectHelper.entObj.ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-                Sotrudnik.ItemsSource = ODBConnectHelper.entObj.Worker.ToList();
+                Users.ItemsSource = ODBConnectHelper.entObj.User.ToList();
             }
         }
     }

@@ -132,6 +132,15 @@
     <Compile Include="DataBase\Worker.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Users\Admin\PageAddUsers.xaml.cs">
+      <DependentUpon>PageAddUsers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Users\Admin\PageAdmin.xaml.cs">
+      <DependentUpon>PageAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Users\Admin\PageUsers.xaml.cs">
+      <DependentUpon>PageUsers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Users\Director\PageAddPostavshik.xaml.cs">
       <DependentUpon>PageAddPostavshik.xaml</DependentUpon>
     </Compile>
@@ -180,6 +189,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageMain\PageRegistration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Users\Admin\PageAddUsers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Users\Admin\PageAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Users\Admin\PageUsers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -295,6 +316,8 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Users\animal\bizon.jpg" />
+    <Resource Include="Users\animal\pinguin.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

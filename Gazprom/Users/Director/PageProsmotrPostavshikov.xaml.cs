@@ -34,7 +34,25 @@ namespace Gazprom.Users.Director
 
         private void BtnDel_Click(object sender, RoutedEventArgs e)
         {
+            var animalsForRemoving = Postavshik.SelectedItems.Cast<Feed_supply>().ToList();
 
+            if (MessageBox.Show($"Вы точно хотите удалить {animalsForRemoving.Count()} элементов", "Внимание",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+
+
+            {
+                try
+                {
+                    ODBConnectHelper.entObj.Feed_supply.RemoveRange(animalsForRemoving);
+                    ODBConnectHelper.entObj.SaveChanges();
+                    MessageBox.Show("Данные удалены");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+            FrameApp.frmObj.Refresh();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

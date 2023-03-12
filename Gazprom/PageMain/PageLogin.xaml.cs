@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Gazprom.DataBase;
 using Gazprom.Users;
+using Gazprom.Users.Admin;
 
 
 namespace Gazprom.PageMain
@@ -61,10 +62,18 @@ namespace Gazprom.PageMain
                     {
                         case 2:
                             FrameApp.frmObj.Navigate(new PageDirector());
-                            break;
+                            MessageBox.Show("Здравствуйте 'Директор'");
+                         
+                        break;
 
                         case 1:
                             FrameApp.frmObj.Navigate(new PageVet());
+                            MessageBox.Show("Здравствуйте 'Ветеринар'");
+                            break;
+                       
+                        case 3:
+                            FrameApp.frmObj.Navigate(new PageAdmin());
+                            MessageBox.Show("Здравствуйте 'Администратор'");
                             break;
 
                     }
