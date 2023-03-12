@@ -90,6 +90,10 @@
                                 <Label Content="{Binding NameOfTheAnimal}"/>
                                 <Label Content=" | "/>
                                 <Label Content="{Binding nickname}"/>
+                                <Label Content=" | "/>
+
+                                <Label Content= "Проживает в клетке №"/>
+                                <Label Content= "{Binding idCell}"/> 
 
 
                             </StackPanel>

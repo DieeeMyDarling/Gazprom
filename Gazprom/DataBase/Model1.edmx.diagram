@@ -4,24 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0436621b9c8a4bd68eec2adbdda4edd6" Name="Diagram1">
+      <Diagram DiagramId="0436621b9c8a4bd68eec2adbdda4edd6" Name="Diagram1" ZoomLevel="57">
         <EntityTypeShape EntityType="ZooModel.Animal" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZooModel.Animal_card" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooModel.Animal_card" Width="1.5" PointX="5.125" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ZooModel.Animal_worker" Width="1.5" PointX="8.25" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="ZooModel.Cell" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ZooModel.Climate_zone" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZooModel.Compatibility" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooModel.Compatibility" Width="1.5" PointX="3.375" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ZooModel.diet" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZooModel.Feed" Width="1.5" PointX="3.75" PointY="18.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZooModel.Feed_supply" Width="1.5" PointX="6" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooModel.Feed" Width="1.5" PointX="12" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooModel.Feed_supply" Width="1.5" PointX="8.375" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="ZooModel.Kind" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZooModel.Possible_offspring" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZooModel.Post" Width="1.5" PointX="3.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooModel.Possible_offspring" Width="1.5" PointX="6.125" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooModel.Post" Width="1.5" PointX="2.875" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ZooModel.Role" Width="1.5" PointX="7.75" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZooModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZooModel.The_supplier" Width="1.5" PointX="3.75" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooModel.The_supplier" Width="1.5" PointX="10.5" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ZooModel.User" Width="1.5" PointX="10" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ZooModel.Worker" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZooModel.Worker" Width="1.5" PointX="6.125" PointY="2" IsExpanded="true" />
         <AssociationConnector Association="ZooModel.FK_Animal_card_Animal" ManuallyRouted="false" />
         <AssociationConnector Association="ZooModel.FK_Animal_worker_Animal" ManuallyRouted="false" />
         <AssociationConnector Association="ZooModel.FK_Animal_Cell" ManuallyRouted="false" />
