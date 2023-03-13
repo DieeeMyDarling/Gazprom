@@ -14,7 +14,7 @@
             <ColumnDefinition Width="491*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
+            <RowDefinition Height="70" />
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -27,6 +27,10 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#FF997E57"/>
+        <Grid Grid.Row="0" Grid.Column="1" Background="#FF997E57"/>
+        <Grid Grid.Row="11" Background="#FF997E57"/>
+        <Grid Grid.Row="11" Grid.Column="2" Background="#FF997E57"/>
         <TextBlock x:Name="tdttest" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Вид животного"></TextBlock>
         <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Клетка"></TextBlock>
         <TextBlock Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Климатическая зона"></TextBlock>

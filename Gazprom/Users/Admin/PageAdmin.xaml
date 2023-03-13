@@ -13,11 +13,45 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <StackPanel VerticalAlignment="Center" Height="180">
-            <Button Content="Добавление нового пользователя" Background="#FF346134"
+            <Button Content="Добавление нового пользователя системы" Background="#FF346134"
                 Foreground="White"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Height="50" Width="500" Margin="0,65,0,-10" Click="Button_Click">
+                Height="50" Width="500" Margin="0,10,0,-10" Click="Button_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="350" Height="40"
+                            CornerRadius="20"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+            <Button Content="Добавление нового сотрудника" Background="#FF346134"
+                Foreground="White"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Height="50" Width="500" Margin="0,15,0,-10" Click="Button_Click_1">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="350" Height="40"
+                            CornerRadius="20"
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+            <Button Content="Добавление нового поставщика" Background="#FF346134"
+                Foreground="White"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Height="50" Width="500" Margin="0,15,0,-10" Click="Button_Click_2">
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Width="350" Height="40"

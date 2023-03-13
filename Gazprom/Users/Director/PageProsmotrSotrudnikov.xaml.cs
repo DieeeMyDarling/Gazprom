@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Gazprom.Users;
 using Gazprom.Users.Vet;
+using Gazprom.Users.Admin;
 
 namespace Gazprom.Users.Director
 {
@@ -33,7 +34,7 @@ namespace Gazprom.Users.Director
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            FrameApp.frmObj.Navigate(new PageDirector());
+            FrameApp.frmObj.Navigate(new PageAdmin());
         }
 
         private void BtnDel_Click(object sender, RoutedEventArgs e)

@@ -13,7 +13,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <StackPanel VerticalAlignment="Center" Height="180">
-            <Button Content="Просмотр информации о сотрудниках" Background="#FF346134"
+            <Button Content="Просмотр графиков работы сотрудников" Background="#FF346134"
                 Foreground="White"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"

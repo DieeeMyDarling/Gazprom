@@ -138,6 +138,9 @@
     <Compile Include="Users\Admin\PageAdmin.xaml.cs">
       <DependentUpon>PageAdmin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Users\Admin\PageNewPostavshik.xaml.cs">
+      <DependentUpon>PageNewPostavshik.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Users\Admin\PageUsers.xaml.cs">
       <DependentUpon>PageUsers.xaml</DependentUpon>
     </Compile>
@@ -146,6 +149,9 @@
     </Compile>
     <Compile Include="Users\Director\PageAddSotrudnik.xaml.cs">
       <DependentUpon>PageAddSotrudnik.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Users\Director\PageGrafic.xaml.cs">
+      <DependentUpon>PageGrafic.xaml</DependentUpon>
     </Compile>
     <Compile Include="Users\Director\PageProsmotrPostavshikov.xaml.cs">
       <DependentUpon>PageProsmotrPostavshikov.xaml</DependentUpon>
@@ -200,6 +206,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Users\Admin\PageNewPostavshik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Users\Admin\PageUsers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -209,6 +219,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Users\Director\PageAddSotrudnik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Users\Director\PageGrafic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

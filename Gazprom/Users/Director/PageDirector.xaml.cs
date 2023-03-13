@@ -34,7 +34,7 @@ namespace Gazprom.Users
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            FrameApp.frmObj.Navigate (new PageProsmotrSotrudnikov());
+            FrameApp.frmObj.Navigate (new PageGrafic());
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
